@@ -52,7 +52,7 @@ const Venue = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="btn-primary venue-btn"
-              onClick={() => window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(weddingConfig.venue + ' ' + weddingConfig.location)}`, '_blank')}
+              onClick={() => window.open(weddingConfig.mapLocation.googleMapsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(weddingConfig.venue + ' ' + weddingConfig.location)}`, '_blank')}
             >
               <Navigation size={18} />
               Get Directions
@@ -61,7 +61,7 @@ const Venue = () => {
           
           <div className="venue-map" style={{ height: '100%', minHeight: '500px' }}>
             <iframe
-              src={weddingConfig.mapUrl}
+              src={weddingConfig.mapLocation.embedMapUrl}
               width="100%"
               height="100%"
               style={{ border: 0, display: 'block' }}

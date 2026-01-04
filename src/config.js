@@ -51,7 +51,10 @@ export const weddingConfig = {
     phone: "+91 9876543210",
     email: "parekhlai@gmail.com"
   },
-  mapUrl: "https://maps.google.com/maps?q=Bombay+Grain+Dealers+Association+Tithal+Sanatorium&t=&z=15&ie=UTF8&iwloc=&output=embed",
+  mapLocation: {
+    googleMapsUrl: "https://www.google.com/maps/place/Bombay+Grain+Dealers'+Association+Tithal+Sanatorium/@20.5979803,72.8972821,17z/data=!3m1!4b1!4m6!3m5!1s0x3be0dd52d0a5a23b:0x2aa9cfca2127c339!8m2!3d20.5979803!4d72.8972821!16s%2Fg%2F11bx1s39kp?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D",
+    embedMapUrl: "https://maps.google.com/maps?q=Bombay+Grain+Dealers+Association+Tithal+Sanatorium&t=&z=15&ie=UTF8&iwloc=&output=embed",
+  },
   registry: {
     upiId: "laisparekh24@oksbi", // Replace with your actual UPI ID
     payeeName: "Shrey and Falak",
