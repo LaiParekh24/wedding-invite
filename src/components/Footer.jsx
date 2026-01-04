@@ -14,16 +14,21 @@ const Footer = () => {
           transition={{ duration: 1 }}
           className="footer-content"
         >
-          <p className="script-text" style={{ fontSize: '3rem' }}>{weddingConfig.couple.initials}</p>
+          {/* <p className="script-text" style={{ fontSize: '3rem' }}>{weddingConfig.couple.initials}</p> */}
+          <img 
+            src="/images/laksh-logo-beige.png" 
+            alt="Laksh Logo" 
+            style={{ height: '80px', width: 'auto', marginBottom: '1.5rem' }}
+          />
           
           <div className="footer-info">
             <p className="footer-date">{weddingConfig.date}</p>
             <p className="footer-location">{weddingConfig.location}</p>
           </div>
 
-          <div className="footer-social">
-            <motion.a whileHover={{ scale: 1.2 }} href="#" className="social-link"><Instagram size={20} /></motion.a>
-            <motion.a whileHover={{ scale: 1.2 }} href="#" className="social-link"><Facebook size={20} /></motion.a>
+          <div className="footer-social" style={{ display: 'flex', gap: '2rem', justifyContent: 'center', marginTop: '2rem' }}>
+            <motion.a whileHover={{ scale: 1.2 }} href="https://www.instagram.com/lakshinlove?igsh=NDAzcTJjczA4cmJx" target="_blank" rel="noopener noreferrer" className="social-link"><Instagram size={20} /></motion.a>
+            {/* <motion.a whileHover={{ scale: 1.2 }} href="#" className="social-link"><Facebook size={20} /></motion.a> */}
             <motion.a whileHover={{ scale: 1.2 }} href={`mailto:${weddingConfig.contact.email}`} className="social-link"><Mail size={20} /></motion.a>
           </div>
 

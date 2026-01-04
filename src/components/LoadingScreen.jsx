@@ -45,15 +45,18 @@ const LoadingScreen = () => {
           >
             🐚
           </motion.div>
-          <motion.h1
+          <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="script-text"
-            style={{ fontSize: '3rem' }}
+            style={{ marginTop: '1rem' }}
           >
-            F & S
-          </motion.h1>
+            <img 
+              src="/images/laksh-logo.png" 
+              alt="Laksh Logo" 
+              style={{ height: '100px', width: 'auto' }}
+            />
+          </motion.div>
           <motion.div
             style={{
               width: '150px',

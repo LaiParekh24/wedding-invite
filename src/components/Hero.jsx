@@ -13,6 +13,17 @@ const Hero = () => {
         transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
         className="container"
       >
+        <motion.div 
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 1 }}
+          style={{ marginBottom: '2rem', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase', opacity: 0.7 }}
+        >
+          {weddingConfig.invocations.map((line, i) => (
+            <p key={i} style={{ margin: '0.25rem 0' }}>{line}</p>
+          ))}
+        </motion.div>
+
         <motion.p 
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -27,9 +38,15 @@ const Hero = () => {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.8, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
         >
-          {weddingConfig.couple.bride} <br />
-          <span className="ampersand">&</span> <br />
           {weddingConfig.couple.groom}
+          <span style={{ display: 'block', fontSize: '0.3em', letterSpacing: '0.1em', marginTop: '0.2em', fontWeight: 'normal', fontFamily: 'var(--font-body)' }}>
+            {weddingConfig.couple.groomParents}
+          </span>
+          <span className="ampersand">Weds</span> <br />
+          {weddingConfig.couple.bride}
+          <span style={{ display: 'block', fontSize: '0.3em', letterSpacing: '0.1em', marginBottom: '0.2em', marginTop: '0.2em', fontWeight: 'normal', fontFamily: 'var(--font-body)' }}>
+            {weddingConfig.couple.brideParents}
+          </span>
         </motion.h1>
 
         <motion.div
@@ -70,7 +87,7 @@ const Hero = () => {
           </motion.button>
         </motion.div>
 
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2, duration: 1 }}
@@ -86,7 +103,7 @@ const Hero = () => {
               opacity: 0.6
             }}>Scroll to explore</p>
           </div>
-        </motion.div>
+        </motion.div> */}
       </motion.div>
     </section>
   );

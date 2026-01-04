@@ -42,10 +42,10 @@ const Venue = () => {
                 {weddingConfig.location}
               </p>
               
-              <p className="venue-description">
+              {/* <p className="venue-description">
                 Join us at this breathtaking coastal retreat where the waves meet the shore. 
                 A perfect setting for our special day.
-              </p>
+              </p> */}
             </motion.div>
 
             <motion.button

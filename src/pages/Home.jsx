@@ -25,6 +25,7 @@ import LoadingScreen from '../components/LoadingScreen';
 import DressCode from '../components/DressCode';
 import ScrollToTop from '../components/ScrollToTop';
 import Divider from '../components/Divider';
+import WhatsAppChannel from '../components/WhatsAppChannel';
 
 function Home() {
   const { scrollYProgress } = useScroll();
@@ -66,8 +67,8 @@ function Home() {
         <LoveStory />
         <Divider />
         
-        <Timeline />
-        <Divider />
+        {/* <Timeline />
+        <Divider /> */}
         
         {/* <WeddingParty />
         <Divider /> */}
@@ -84,16 +85,19 @@ function Home() {
         <Venue />
         <Divider />
         
-        <Travel />
-        <Divider />
+        {/* <Travel />
+        <Divider /> */}
         
         <FAQ />
         <Divider />
         
-        <Guestbook />
-        <Divider />
+        {/* <Guestbook />
+        <Divider /> */}
         
         <Registry />
+        <Divider />
+
+        <WhatsAppChannel />
         <Divider />
         
         {/* <RSVP /> */}

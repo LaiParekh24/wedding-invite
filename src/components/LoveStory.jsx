@@ -15,7 +15,7 @@ const LoveStory = () => {
             transition={{ duration: 1 }}
           >
             <div className="image-stack">
-              <img src="/images/gallery-4.png" alt="Our Love" className="img-main" />
+              <img src="/images/couple-forever.jpeg" alt="Our Love" className="img-main" />
               <div className="img-accent glass">
                 <p className="script-text" style={{ fontSize: '2rem', color: 'var(--ocean-deep)' }}>Forever</p>
               </div>
@@ -34,7 +34,8 @@ const LoveStory = () => {
               How We Met
             </h2>
             <div className="story-content">
-              <p>
+              <p>Ours began in the most unexpected way. An arranged meeting, biodatas exchanged—but barely read. What truly mattered happened when we met. From our very first conversation, we felt an instant ease, a natural connection. Meetings turned into long conversations, conversations into comfort, and before we knew it, two paths gently chose each other. That’s how we met—by fate, by faith, and by saying yes to a feeling.</p>
+              {/* <p>
                 It all started with a simple cup of coffee in Santa Monica. What was supposed to be a quick 30-minute meeting turned into a four-hour conversation about travel, music, and our shared love for the ocean.
               </p>
               <p>
@@ -42,11 +43,12 @@ const LoveStory = () => {
               </p>
               <p>
                 Three years later, on the same beach where we'll say "I do," Ethan asked the most important question of his life. And Sophia, with tears of joy, said yes.
-              </p>
+              </p> */}
             </div>
             <div className="story-quote">
               <p>"In all the world, there is no heart for me like yours. In all the world, there is no love for you like mine."</p>
-              <span>— Maya Angelou</span>
+              <span>— Shrey Parekh</span>
+              {/* <span>— Maya Angelou</span> */}
             </div>
           </motion.div>
         </div>

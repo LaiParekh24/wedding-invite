@@ -3,10 +3,12 @@ import { motion } from 'framer-motion';
 
 const FAQ = () => {
   const faqs = [
-    { q: "Can I bring a plus one?", a: "We have carefully curated our guest list to stay within venue capacity. Please refer to your invitation for the number of seats reserved in your honor." },
-    { q: "Are children welcome?", a: "We love your little ones! However, we have decided to make our wedding an adults-only celebration." },
-    { q: "What time should I arrive?", a: "We recommend arriving 30 minutes before the ceremony starts to find your seat and enjoy the pre-wedding music." },
-    { q: "Is there a gift registry?", a: "Your presence is the greatest gift! If you wish to give, we have a registry section below with some ideas." }
+    { q: "How far is the venue from Valsad Railway Station?", a: "The venue is just 10–15 minutes away from Valsad Railway Station." },
+    { q: "Do we need to pre-book transport?", a: "No stress! Autos and local transport are easily available near the station." },
+    { q: "Do I need to carry my own toiletries?", a: "Basic toiletries will be provided by us. However, we request you to please carry your own towels." },
+    { q: "Is parking available at the venue?", a: "Yes, ample parking space is available for guests.But we don’t have EV charging station" },
+    { q: "Lost? Confused? Need chai?", a: "Family members will be around to help—just ask anyone smiling 😄" },
+    // { q: "Is there a gift registry?", a: "Your presence is the greatest gift! If you wish to give, we have a registry section below with some ideas." }
   ];
 
   return (
@@ -15,7 +17,7 @@ const FAQ = () => {
         <motion.h2 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          style={{ fontSize: '3.5rem', color: 'var(--ocean-deep)', marginBottom: '3rem' }}
+          style={{ fontSize: '2.5rem', color: 'var(--ocean-deep)', marginBottom: '3rem' }}
         >
           Common Questions
         </motion.h2>

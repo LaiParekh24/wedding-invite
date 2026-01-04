@@ -16,7 +16,7 @@ const Events = () => {
           style={{ marginBottom: '4rem' }}
         >
           <p className="script-text" style={{ fontSize: '2.5rem' }}>The Details</p>
-          <h2 style={{ fontSize: '3.5rem', color: 'var(--ocean-deep)', marginTop: '-1rem' }}>
+          <h2 style={{ fontSize: '2.5rem', color: 'var(--ocean-deep)', marginTop: '-1rem' }}>
             The Celebration
           </h2>
         </motion.div>
@@ -35,13 +35,24 @@ const Events = () => {
               <div className="event-icon">
                 {index === 0 ? <Clock size={40} strokeWidth={1.5} /> : index === 1 ? <Calendar size={40} strokeWidth={1.5} /> : <MapPin size={40} strokeWidth={1.5} />}
               </div>
-              <h3 style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>{event.name}</h3>
+              <h3 style={{ fontSize: '1.5rem', marginBottom: '1.5rem' }}>{event.name}</h3>
               <div className="event-details">
                 <p style={{ fontWeight: 500 }}><Clock size={18} color="var(--ocean-blue)" /> {event.time}</p>
                 <p style={{ fontWeight: 500 }}><Calendar size={18} color="var(--ocean-blue)" /> {event.date}</p>
                 <p style={{ fontWeight: 500 }}><MapPin size={18} color="var(--ocean-blue)" /> {event.location}</p>
               </div>
               <p className="event-description" style={{ fontSize: '1.05rem', opacity: 0.8, flexGrow: 1 }}>{event.description}</p>
+              
+              {event.schedule && (
+                <div className="event-schedule" style={{ marginTop: '1.5rem', width: '100%', background: 'rgba(255,255,255,0.3)', padding: '1rem', borderRadius: '8px' }}>
+                  {event.schedule.map((item, i) => (
+                    <div key={i} style={{ display: 'flex', justifyContent: 'space-between', marginBottom: i === event.schedule.length - 1 ? 0 : '0.5rem', fontSize: '0.95rem' }}>
+                      <span style={{ fontWeight: 600, color: 'var(--ocean-deep)' }}>{item.label}</span>
+                      <span style={{ fontWeight: 500 }}>{item.time}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
               
               <div className="event-footer">
                 <div className="event-line"></div>

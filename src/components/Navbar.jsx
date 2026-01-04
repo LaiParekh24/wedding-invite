@@ -12,18 +12,19 @@ const Navbar = () => {
 
   const navItems = [
     { name: 'Our Story', href: '#love-story' },
-    { name: 'Timeline', href: '#timeline' },
-    { name: 'Party', href: '#wedding-party' },
+    // { name: 'Timeline', href: '#timeline' },
+    // { name: 'Party', href: '#wedding-party' },
     { name: 'Events', href: '#events' },
     { name: 'Attire', href: '#dress-code' },
     { name: 'Gallery', href: '#gallery' },
     { name: 'Venue', href: '#venue' },
-    { name: 'Travel', href: '#travel' },
+    // { name: 'Travel', href: '#travel' },
     { name: 'FAQ', href: '#faq' },
-    { name: 'Guestbook', href: '#guestbook' },
-    { name: 'Registry', href: '#registry' },
-    { name: 'RSVP', href: '#rsvp' },
-    { name: 'Beach', href: '/beach', isRoute: true },
+    // { name: 'Guestbook', href: '#guestbook' },
+    { name: 'Gift & Blessings', href: '#registry' },
+    { name: 'WhatsApp', href: '#whatsapp' },
+    // { name: 'RSVP', href: '#rsvp' },
+    // { name: 'Beach', href: '/beach', isRoute: true },
   ];
 
   useEffect(() => {
@@ -76,8 +77,13 @@ const Navbar = () => {
             className="nav-logo"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
+            style={{ display: 'flex', alignItems: 'center' }}
           >
-            {weddingConfig.couple.initials}
+            <img 
+              src="/images/laksh-logo.png" 
+              alt="Laksh Logo" 
+              style={{ height: '50px', width: 'auto' }}
+            />
           </motion.div>
         </Link>
 
