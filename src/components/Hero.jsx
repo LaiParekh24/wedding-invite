@@ -75,11 +75,11 @@ const Hero = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => generateICS({
-              title: `Wedding of ${weddingConfig.couple.bride} & ${weddingConfig.couple.groom}`,
+              name: `Wedding of ${weddingConfig.couple.groom} & ${weddingConfig.couple.bride}`,
               description: `Join us for our special day at ${weddingConfig.venue}!`,
               location: `${weddingConfig.venue}, ${weddingConfig.location}`,
-              startTime: '20260824T170000',
-              endTime: '20260824T230000'
+              date: weddingConfig.date,
+              time: "9:00 AM"
             })}
             className="btn-primary"
           >

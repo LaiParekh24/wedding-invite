@@ -4,7 +4,7 @@ import { Music, Volume2, VolumeX } from 'lucide-react';
 import { weddingConfig } from '../config';
 
 const AudioPlayer = () => {
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
   const audioRef = useRef(null);
 
@@ -17,48 +17,48 @@ const AudioPlayer = () => {
     setIsPlaying(!isPlaying);
   };
 
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
+  // useEffect(() => {
+  //   const audio = audioRef.current;
+  //   if (!audio) return;
 
-    // Function to handle play on interaction
-    const handleInteraction = () => {
-      audio.play()
-        .then(() => {
-          setIsPlaying(true);
-          // Clean up listeners once played
-          ['click', 'touchstart', 'touchend', 'pointerdown', 'keydown'].forEach(event => 
-            document.removeEventListener(event, handleInteraction)
-          );
-        })
-        .catch((e) => {
-          console.debug("Play failed on interaction:", e);
-        });
-    };
+  //   // Function to handle play on interaction
+  //   const handleInteraction = () => {
+  //     audio.play()
+  //       .then(() => {
+  //         setIsPlaying(true);
+  //         // Clean up listeners once played
+  //         ['click', 'touchstart', 'touchend', 'pointerdown', 'keydown'].forEach(event => 
+  //           document.removeEventListener(event, handleInteraction)
+  //         );
+  //       })
+  //       .catch((e) => {
+  //         console.debug("Play failed on interaction:", e);
+  //       });
+  //   };
 
-    // Attempt autoplay immediately
-    audio.play()
-      .then(() => {
-        setIsPlaying(true);
-      })
-      .catch((e) => {
-        console.debug("Autoplay blocked. Waiting for interaction.");
-        setIsPlaying(false);
-        setShowTooltip(true); // Show tooltip to hint that music is available
+  //   // Attempt autoplay immediately
+  //   audio.play()
+  //     .then(() => {
+  //       setIsPlaying(true);
+  //     })
+  //     .catch((e) => {
+  //       console.debug("Autoplay blocked. Waiting for interaction.");
+  //       setIsPlaying(false);
+  //       setShowTooltip(true); // Show tooltip to hint that music is available
         
-        // Add listeners for fallback - including touchend for mobile
-        ['click', 'touchstart', 'touchend', 'pointerdown', 'keydown'].forEach(event => 
-          document.addEventListener(event, handleInteraction)
-        );
-      });
+  //       // Add listeners for fallback - including touchend for mobile
+  //       ['click', 'touchstart', 'touchend', 'pointerdown', 'keydown'].forEach(event => 
+  //         document.addEventListener(event, handleInteraction)
+  //       );
+  //     });
 
-    // Cleanup on unmount
-    return () => {
-      ['click', 'touchstart', 'touchend', 'pointerdown', 'keydown'].forEach(event => 
-        document.removeEventListener(event, handleInteraction)
-      );
-    };
-  }, []);
+  //   // Cleanup on unmount
+  //   return () => {
+  //     ['click', 'touchstart', 'touchend', 'pointerdown', 'keydown'].forEach(event => 
+  //       document.removeEventListener(event, handleInteraction)
+  //     );
+  //   };
+  // }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => setShowTooltip(true), 3000);
@@ -83,7 +83,7 @@ const AudioPlayer = () => {
             style={{
               position: 'absolute',
               right: '80px',
-              bottom: '10px',
+              bottom: '5px',
               padding: '0.8rem 1.2rem',
               whiteSpace: 'nowrap',
               fontSize: '0.9rem',

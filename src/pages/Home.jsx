@@ -22,7 +22,6 @@ import Footer from '../components/Footer';
 import LoveStory from '../components/LoveStory';
 import FloatingRSVP from '../components/FloatingRSVP';
 import LoadingScreen from '../components/LoadingScreen';
-import DressCode from '../components/DressCode';
 import ScrollToTop from '../components/ScrollToTop';
 import Divider from '../components/Divider';
 import WhatsAppChannel from '../components/WhatsAppChannel';
@@ -74,9 +73,6 @@ function Home() {
         <Divider /> */}
 
         <Events />
-        <Divider />
-        
-        <DressCode />
         <Divider />
         
         <Gallery />

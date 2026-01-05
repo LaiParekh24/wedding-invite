@@ -15,7 +15,6 @@ const Navbar = () => {
     // { name: 'Timeline', href: '#timeline' },
     // { name: 'Party', href: '#wedding-party' },
     { name: 'Events', href: '#events' },
-    { name: 'Attire', href: '#dress-code' },
     { name: 'Gallery', href: '#gallery' },
     { name: 'Venue', href: '#venue' },
     // { name: 'Travel', href: '#travel' },

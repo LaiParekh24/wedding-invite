@@ -3,6 +3,7 @@
 :root {
   --ocean-deep: #1a3c40;
   --ocean-blue: #417d7a;
+  --ocean-blue-rgb: 65, 125, 122;
   --sand-light: #f7f2e7;
   --sand-dark: #ede4d3;
   --pearl: #ffffff;
@@ -58,7 +59,7 @@ a, button {
 
 section {
   padding: 120px 20px;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -377,6 +378,21 @@ section {
 .right .timeline-year { left: -120px; }
 
 /* Events */
+.events-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.events-header .script-text {
+  font-size: 2.5rem;
+}
+
+.events-header h2 {
+  font-size: 2.5rem;
+  color: var(--ocean-deep);
+  margin-top: -1rem;
+}
+
 .events-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -391,18 +407,35 @@ section {
   flex-direction: column;
 }
 
+.event-icon {
+  margin-bottom: 1.5rem;
+  color: var(--gold);
+}
+
+.event-icon svg {
+  width: 40px;
+  height: 40px;
+}
+
+.event-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.event-description {
+  font-size: 1.05rem;
+  opacity: 0.8;
+  flex-grow: 1;
+}
+
 .event-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 2rem;
-}
-
-.event-line {
-  height: 2px;
-  width: 40px;
-  background: var(--coral);
-  opacity: 0.5;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(var(--ocean-blue-rgb), 0.1);
+  width: 100%;
 }
 
 .event-calendar-btn {
@@ -411,12 +444,41 @@ section {
   color: var(--ocean-blue);
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 0.8rem;
+  gap: 0.6rem;
+  font-size: 0.9rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 1px;
+  padding: 0.5rem 0;
   cursor: none;
+}
+
+.event-map-btn {
+  background: var(--ocean-deep);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 10px 20px rgba(26, 60, 64, 0.15);
+  border: none;
+  cursor: none;
+}
+
+@media (max-width: 768px) {
+  .event-footer {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  
+  .event-calendar-btn, .event-map-btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 /* Venue */
@@ -542,14 +604,14 @@ section {
 /* Audio Player */
 .audio-player-container {
   position: fixed;
-  bottom: 40px;
-  right: 40px;
+  bottom: 30px;
+  right: 30px;
   z-index: 1000;
 }
 
 .audio-toggle {
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
@@ -677,6 +739,50 @@ section {
   text-align: center;
 }
 
+.blessings-modal-overlay {
+  cursor: none;
+}
+
+.blessings-card {
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2) !important;
+  border: 1px solid rgba(197, 160, 89, 0.2) !important;
+}
+
+.blessings-card h2 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+}
+
+.blessings-card .btn-primary {
+  min-width: 200px;
+}
+
+@media (max-width: 768px) {
+  .blessings-card {
+    padding: 2rem 1.5rem !important;
+    max-width: 90% !important;
+    margin: 0 auto;
+  }
+  
+  .blessings-card h2 {
+    font-size: 1.8rem !important;
+  }
+
+  .blessings-card p {
+    font-size: 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .blessings-card {
+    padding: 1.5rem 1rem !important;
+  }
+  
+  .blessings-card h2 {
+    font-size: 1.5rem !important;
+  }
+}
+
 .registry-header {
   margin-bottom: 4rem;
 }
@@ -781,7 +887,7 @@ section {
 
 @media (max-width: 768px) {
   :root {
-    --section-padding: 60px 15px;
+    --section-padding: 30px 15px;
   }
 
   section {
@@ -876,9 +982,82 @@ section {
     padding: 20px;
   }
 
+  .events-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .events-header .script-text {
+    font-size: 2rem;
+  }
+
+  .events-header h2 {
+    font-size: 2rem;
+    margin-top: -0.5rem;
+  }
+
   .events-grid, .wedding-party-grid, .gallery-grid, .dress-code-grid, .registry-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 15px;
+  }
+
+  .events-grid {
+    margin-top: 20px;
+  }
+
+  .event-card {
+    padding: 25px 15px;
+  }
+
+  .event-icon {
+    margin-bottom: 0.5rem;
+  }
+
+  .event-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .event-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .event-description {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .event-footer {
+    margin-top: 1rem;
+    padding-top: 0.8rem;
+  }
+
+  .event-details {
+    margin-bottom: 0.8rem;
+  }
+
+  .event-details p, .event-details a {
+    font-size: 0.85rem !important;
+    margin-bottom: 0.3rem !important;
+  }
+
+  .event-dress-code {
+    margin-top: 0.8rem !important;
+    padding: 0.6rem !important;
+  }
+
+  .event-dress-code p {
+    font-size: 0.8rem !important;
+  }
+
+  .event-schedule {
+    margin-top: 1rem !important;
+    padding: 0.8rem !important;
+  }
+
+  .event-schedule div {
+    font-size: 0.85rem !important;
+    margin-bottom: 0.3rem !important;
   }
 
   .venue-text {

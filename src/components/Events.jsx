@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Clock, MapPin, Download } from 'lucide-react';
+import { Calendar, Clock, MapPin, Download, Shirt, Navigation } from 'lucide-react';
 import { weddingConfig } from '../config';
 import { generateICS } from '../utils/calendar';
 
@@ -13,12 +13,10 @@ const Events = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          style={{ marginBottom: '4rem' }}
+          className="events-header"
         >
-          <p className="script-text" style={{ fontSize: '2.5rem' }}>The Details</p>
-          <h2 style={{ fontSize: '2.5rem', color: 'var(--ocean-deep)', marginTop: '-1rem' }}>
-            The Celebration
-          </h2>
+          <p className="script-text">The Details</p>
+          <h2>The Celebration</h2>
         </motion.div>
 
         <div className="events-grid">
@@ -33,16 +31,34 @@ const Events = () => {
               whileHover={{ y: -10, transition: { duration: 0.3 } }}
             >
               <div className="event-icon">
-                {index === 0 ? <Clock size={40} strokeWidth={1.5} /> : index === 1 ? <Calendar size={40} strokeWidth={1.5} /> : <MapPin size={40} strokeWidth={1.5} />}
+                {index === 0 ? <Clock strokeWidth={1.5} /> : index === 1 ? <Calendar strokeWidth={1.5} /> : <MapPin strokeWidth={1.5} />}
               </div>
-              <h3 style={{ fontSize: '1.5rem', marginBottom: '1.5rem' }}>{event.name}</h3>
+              <h3 style={{ color: 'var(--gold)' }}>{event.name}</h3>
               <div className="event-details">
                 <p style={{ fontWeight: 500 }}><Clock size={18} color="var(--ocean-blue)" /> {event.time}</p>
                 <p style={{ fontWeight: 500 }}><Calendar size={18} color="var(--ocean-blue)" /> {event.date}</p>
-                <p style={{ fontWeight: 500 }}><MapPin size={18} color="var(--ocean-blue)" /> {event.location}</p>
+                <motion.a 
+                  href={event.mapLink} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  whileHover={{ color: 'var(--ocean-blue)', x: 5 }}
+                  style={{ fontWeight: 500, color: 'inherit', textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', transition: 'color 0.3s ease' }}
+                  className="event-location-link"
+                >
+                  <MapPin size={18} color="var(--ocean-blue)" /> {event.location}
+                </motion.a>
               </div>
-              <p className="event-description" style={{ fontSize: '1.05rem', opacity: 0.8, flexGrow: 1 }}>{event.description}</p>
+              <p className="event-description">{event.description}</p>
               
+              {event.dressCode && (
+                <div className="event-dress-code" style={{ marginTop: '1rem', padding: '0.8rem', background: 'rgba(var(--ocean-blue-rgb), 0.1)', borderRadius: '8px', borderLeft: '3px solid var(--ocean-blue)' }}>
+                  <p style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--ocean-deep)', marginBottom: '0.3rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <Shirt size={16} /> Dress Code
+                  </p>
+                  <p style={{ fontSize: '0.95rem', opacity: 0.9, lineHeight: '1.4' }}>{event.dressCode}</p>
+                </div>
+              )}
+
               {event.schedule && (
                 <div className="event-schedule" style={{ marginTop: '1.5rem', width: '100%', background: 'rgba(255,255,255,0.3)', padding: '1rem', borderRadius: '8px' }}>
                   {event.schedule.map((item, i) => (
@@ -55,16 +71,24 @@ const Events = () => {
               )}
               
               <div className="event-footer">
-                <div className="event-line"></div>
-                
                 <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
+                  whileHover={{ scale: 1.05, x: -5 }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={() => generateICS(event)}
                   className="event-calendar-btn"
                 >
-                  <Download size={16} />
-                  Save to Calendar
+                  <Calendar size={18} strokeWidth={2} />
+                  <span>Calendar</span>
+                </motion.button>
+
+                <motion.button
+                  whileHover={{ scale: 1.05, x: 5 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => window.open(event.mapLink, '_blank')}
+                  className="event-map-btn"
+                >
+                  <Navigation size={18} fill="white" />
+                  <span>Directions</span>
                 </motion.button>
               </div>
             </motion.div>

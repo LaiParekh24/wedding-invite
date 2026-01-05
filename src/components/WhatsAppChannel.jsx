@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { MessageCircle, Bell, Calendar, Camera } from 'lucide-react';
+import { weddingConfig } from '../config';
 
 const WhatsAppChannel = () => {
-  const whatsappChannelLink = "https://chat.whatsapp.com/HovlfxrbAerI8tMFQEQMWA"; // Replace with actual channel link
+  const whatsappChannelLink = weddingConfig.contact.whatsappChannelLink;
 
   const features = [
     {
