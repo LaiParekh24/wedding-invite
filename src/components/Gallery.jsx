@@ -55,7 +55,7 @@ const Gallery = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          style={{ fontSize: '3.5rem', color: 'var(--ocean-deep)', marginBottom: '1rem' }}
+          style={{ fontSize: isMobile ? '2.5rem' : '3.5rem', color: 'var(--ocean-deep)', marginBottom: '1rem' }}
         >
           Our Moments
         </motion.h2>
@@ -73,19 +73,19 @@ const Gallery = () => {
             gap: isMobile ? '0' : '20px',
             alignItems: 'center',
             justifyContent: 'center',
-            minHeight: isMobile ? '400px' : '500px'
+            minHeight: isMobile ? '450px' : '500px'
           }}>
             <AnimatePresence mode="wait" custom={direction}>
               <motion.div
                 key={currentIndex}
                 custom={direction}
-                initial={{ opacity: 0, x: direction > 0 ? 300 : -300 }}
+                initial={{ opacity: 0, x: isMobile ? 0 : (direction > 0 ? 300 : -300) }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: direction > 0 ? -300 : 300 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
+                exit={{ opacity: 0, x: isMobile ? 0 : (direction > 0 ? -300 : 300) }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
                 style={{
                   display: 'flex',
-                  gap: '20px',
+                  gap: isMobile ? '0' : '20px',
                   width: '100%',
                   justifyContent: 'center'
                 }}
@@ -96,27 +96,53 @@ const Gallery = () => {
                     className="glass-card"
                     whileHover={{ scale: 1.02 }}
                     style={{ 
-                      flex: isMobile ? '1' : '0 0 calc(33.333% - 14px)',
+                      flex: isMobile ? '0 0 100%' : '0 0 calc(33.333% - 14px)',
                       maxWidth: isMobile ? '100%' : 'calc(33.333% - 14px)',
-                      padding: '15px',
-                      cursor: 'pointer',
-                      height: isMobile ? '400px' : '500px'
+                      padding: isMobile ? '8px' : '12px',
+                      // aspectRatio: isMobile ? '4/5' : 'auto',
+                      height: isMobile ? '50vh' : '500px',
+                      position: 'relative',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      overflow: 'hidden'
                     }}
                   >
                     <div style={{ 
                       width: '100%', 
                       height: '100%', 
-                      position: 'relative'
+                      position: 'relative',
+                      overflow: 'hidden',
+                      borderRadius: '20px',
+                      backgroundColor: 'rgba(255,255,255,0.1)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center'
                     }}>
+                      {/* Subtle background gradient instead of blur for a cleaner look */}
+                      <div style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        background: 'radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, rgba(0,0,0,0.05) 100%)',
+                        zIndex: 0
+                      }} />
+
+                      {/* Main image - strictly contained to prevent any clipping */}
                       <img 
                         src={item.url} 
                         alt={item.caption} 
                         style={{ 
-                          width: '100%', 
-                          height: '100%', 
-                          objectFit: 'cover',
-                          borderRadius: '12px',
-                          userSelect: 'none'
+                          maxWidth: '100%', 
+                          maxHeight: '100%', 
+                          width: 'auto',
+                          height: 'auto',
+                          objectFit: 'contain',
+                          position: 'relative',
+                          zIndex: 1,
+                          userSelect: 'none',
+                          padding: '2px'
                         }} 
                         draggable="false"
                       />
@@ -154,23 +180,24 @@ const Gallery = () => {
             style={{
               position: 'absolute',
               top: '50%',
-              left: isMobile ? '10px' : '-60px',
-              transform: 'translateY(-50%)',
+              left: isMobile ? '5px' : '-60px',
+              // transform: 'translateY(-50%)',
               background: 'var(--glass)',
               backdropFilter: 'blur(10px)',
               border: '1px solid var(--glass-border)',
               borderRadius: '50%',
-              width: isMobile ? '40px' : '50px',
-              height: isMobile ? '40px' : '50px',
+              width: isMobile ? '36px' : '50px',
+              height: isMobile ? '36px' : '50px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               cursor: 'pointer',
               zIndex: 10,
-              color: 'var(--ocean-deep)'
+              color: 'var(--ocean-deep)',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
             }}
           >
-            <ChevronLeft size={isMobile ? 20 : 24} />
+            <ChevronLeft size={isMobile ? 18 : 24} />
           </motion.button>
 
           <motion.button
@@ -180,23 +207,24 @@ const Gallery = () => {
             style={{
               position: 'absolute',
               top: '50%',
-              right: isMobile ? '10px' : '-60px',
-              transform: 'translateY(-50%)',
+              right: isMobile ? '5px' : '-60px',
+              // transform: 'translateY(-50%)',
               background: 'var(--glass)',
               backdropFilter: 'blur(10px)',
               border: '1px solid var(--glass-border)',
               borderRadius: '50%',
-              width: isMobile ? '40px' : '50px',
-              height: isMobile ? '40px' : '50px',
+              width: isMobile ? '36px' : '50px',
+              height: isMobile ? '36px' : '50px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               cursor: 'pointer',
               zIndex: 10,
-              color: 'var(--ocean-deep)'
+              color: 'var(--ocean-deep)',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
             }}
           >
-            <ChevronRight size={isMobile ? 20 : 24} />
+            <ChevronRight size={isMobile ? 18 : 24} />
           </motion.button>
 
           {/* Dots Indicator */}
@@ -236,3 +264,5 @@ const Gallery = () => {
 };
 
 export default Gallery;
+
+

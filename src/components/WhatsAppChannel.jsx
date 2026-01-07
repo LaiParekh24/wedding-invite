@@ -36,10 +36,10 @@ const WhatsAppChannel = () => {
         >
           <p className="script-text" style={{ fontSize: '2.5rem' }}>Stay Connected</p>
           <h2 style={{ fontSize: '2.5rem', color: 'var(--ocean-deep)', marginTop: '-1rem' }}>
-            Join Our WhatsApp Channel
+            Join Our WhatsApp Group
           </h2>
           <p style={{ maxWidth: '600px', margin: '1.5rem auto 0', fontSize: '1.1rem', opacity: 0.8 }}>
-            Don't miss a moment! Join our WhatsApp channel for live updates, schedule changes, and exclusive content from our wedding celebrations.
+            Don't miss a moment! Join our WhatsApp Group for live updates, schedule changes, and exclusive content from our wedding celebrations.
           </p>
         </motion.div>
 
@@ -116,7 +116,7 @@ const WhatsAppChannel = () => {
             }}
           >
             <MessageCircle size={24} />
-            Join WhatsApp Channel
+            Join WhatsApp Group
           </motion.a>
           
           <p style={{ 

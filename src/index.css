@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@100;200;300;400;500;600&family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@100;200;300;400;500;600&family=Great+Vibes&family=Cinzel:wght@400;500;600;700&family=Pinyon+Script&family=Satisfy&display=swap');
 
 :root {
   --ocean-deep: #1a3c40;
@@ -1062,10 +1062,23 @@ section {
 
   .venue-text {
     padding: 25px 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .venue-name {
     font-size: 1.3rem;
+  }
+
+  .venue-address {
+    justify-content: center;
+  }
+
+  .venue-btn {
+    width: 100%;
+    margin-top: 2rem;
   }
 
   .audio-toggle {

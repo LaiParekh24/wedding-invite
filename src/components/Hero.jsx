@@ -28,7 +28,14 @@ const Hero = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 1 }}
-          className="script-text"
+          style={{ 
+            fontFamily: "'Satisfy', cursive", 
+            fontSize: '2.2rem', 
+            color: 'var(--gold)',
+            marginBottom: '0.8rem',
+            textShadow: '0 2px 4px rgba(0,0,0,0.05)',
+            letterSpacing: '0.05em'
+          }}
         >
           {weddingConfig.tagline}
         </motion.p>

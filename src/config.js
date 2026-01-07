@@ -1,7 +1,7 @@
 export const weddingConfig = {
   invocations: [
     "|| શ્રી ચંદ્રપ્રભુ સ્વામી ને નમઃ ||",
-    "|| શ્રી અમીઝરા પાર્શ્વનાથ સ્વામી ને નમઃ ||"
+    "|| શ્રી અમીઝરા પાર્શ્વનાથાય નમઃ ||"
   ],
   couple: {
     bride: "Falak",
@@ -45,6 +45,7 @@ export const weddingConfig = {
       description: "Join us as we exchange our vows and start our new life together.",
       dressCode: "Traditional & elegant. Men: Sherwani or Bandhgala. Women: Saree or Chaniya Choli",
       schedule: [
+        { time: "5:30 AM", label: "Mandap Muhurat" },
         { time: "9:00 AM", label: "Baraat" },
         { time: "11:00 AM", label: "Varmala" },
         { time: "11:52 AM", label: "Marriage Begins" }

@@ -59,7 +59,7 @@ const Venue = () => {
             </motion.button>
           </div>
           
-          <div className="venue-map" style={{ height: '100%', minHeight: '500px' }}>
+          <div className="venue-map" style={{ height: '100%', minHeight: '400px' }}>
             <iframe
               src={weddingConfig.mapLocation.embedMapUrl}
               width="100%"
