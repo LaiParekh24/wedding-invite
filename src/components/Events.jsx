@@ -1,8 +1,18 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Clock, MapPin, Download, Shirt, Navigation } from 'lucide-react';
+import { Calendar, Clock, MapPin, Download, Shirt, Navigation, Sun, Gift, Music, Heart } from 'lucide-react';
 import { weddingConfig } from '../config';
 import { generateICS } from '../utils/calendar';
+
+const iconMap = {
+  Sun: Sun,
+  Gift: Gift,
+  Music: Music,
+  Heart: Heart,
+  Clock: Clock,
+  Calendar: Calendar,
+  MapPin: MapPin
+};
 
 const Events = () => {
   return (
@@ -20,19 +30,21 @@ const Events = () => {
         </motion.div>
 
         <div className="events-grid">
-          {weddingConfig.events.map((event, index) => (
-            <motion.div
-              key={event.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, delay: index * 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="event-card glass"
-              whileHover={{ y: -10, transition: { duration: 0.3 } }}
-            >
-              <div className="event-icon">
-                {index === 0 ? <Clock strokeWidth={1.5} /> : index === 1 ? <Calendar strokeWidth={1.5} /> : <MapPin strokeWidth={1.5} />}
-              </div>
+          {weddingConfig.events.map((event, index) => {
+            const IconComponent = iconMap[event.icon] || MapPin;
+            return (
+              <motion.div
+                key={event.id}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, delay: index * 0.2, ease: [0.16, 1, 0.3, 1] }}
+                className="event-card glass"
+                whileHover={{ y: -10, transition: { duration: 0.3 } }}
+              >
+                <div className="event-icon">
+                  <IconComponent strokeWidth={1.5} />
+                </div>
               <h3 style={{ color: 'var(--gold)' }}>{event.name}</h3>
               <div className="event-details">
                 <p style={{ fontWeight: 500 }}><Clock size={18} color="var(--ocean-blue)" /> {event.time}</p>
@@ -92,7 +104,8 @@ const Events = () => {
                 </motion.button>
               </div>
             </motion.div>
-          ))}
+          );
+        })}
         </div>
       </div>
     </section>
