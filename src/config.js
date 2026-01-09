@@ -62,7 +62,7 @@ export const weddingConfig = {
         { time: "5:30 AM", label: "Mandap Muhurat" },
         { time: "9:00 AM", label: "Baraat" },
         { time: "11:00 AM", label: "Varmala" },
-        { time: "11:52 AM", label: "Marriage Begins" }
+        { time: "11:52 AM", label: "Hast Medap" }
       ]
     }
   ],
